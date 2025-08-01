@@ -22,4 +22,8 @@
   (when (member "Droid Sans Mono" (font-family-list))
     (set-frame-font "Droid Sans Mono" t t)))
 
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(require 'initpackages)
