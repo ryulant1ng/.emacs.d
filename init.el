@@ -15,15 +15,17 @@
 (setopt display-fill-column-indicator-character ?\u007c)
 
 (when (display-graphic-p)
-  (scroll-bar-mode nil)
+  (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (add-to-list 'default-frame-alist '(width . 100))
   (add-to-list 'default-frame-alist '(height . 30))
-  (when (member "Droid Sans Mono" (font-family-list))
-    (set-frame-font "Droid Sans Mono" t t)))
+  (setq gui-font "Droid Sans Mono")
+  (when (member gui-font (font-family-list))
+    (set-frame-font gui-font t t)))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(require 'initpackages)
+(require 'init-packages)
+(require 'init-fonts)

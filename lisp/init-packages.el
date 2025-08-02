@@ -3,6 +3,10 @@
 (package-initialize)
 (eval-when-compile (require 'use-package))
 
+(use-package editorconfig ; Won't use `:ensure t`, which requires Emacs 30+.
+  :config
+  (editorconfig-mode t))
+
 (use-package amx
   :ensure t
   :init (amx-mode))
@@ -32,4 +36,4 @@
 (use-package markdown-mode
   :ensure t)
 
-(provide 'initpackages)
+(provide 'init-packages)
