@@ -3,9 +3,9 @@
 (package-initialize)
 (eval-when-compile (require 'use-package))
 
-(use-package editorconfig ; Won't use `:ensure t`, which requires Emacs 30+.
+(use-package editorconfig ; Won't use `:ensure t`, so requires Emacs 30+.
   :config
-  (editorconfig-mode t))
+  (editorconfig-mode 1))
 
 (use-package amx
   :ensure t
