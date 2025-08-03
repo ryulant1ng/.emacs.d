@@ -3,6 +3,8 @@
 (package-initialize)
 (eval-when-compile (require 'use-package))
 
+;; Editing
+
 (use-package editorconfig ; Won't use `:ensure t`, so requires Emacs 30+.
   :config
   (editorconfig-mode 1))
@@ -25,10 +27,15 @@
 (use-package neotree
   :ensure t)
 
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode 1))
+;; Language support
+
+(use-package markdown-mode
+  :ensure t)
+
+(use-package auctex
+  :ensure t)
+
+;; Beautify
 
 (use-package powerline
   :ensure t
@@ -43,7 +50,7 @@
   (spaceline-emacs-theme)
   (setq spaceline-minor-modes-separator " "))
 
-(use-package markdown-mode
+(use-package solarized-theme
   :ensure t)
 
 (provide 'init-packages)
