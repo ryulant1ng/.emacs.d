@@ -12,7 +12,7 @@
 
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (setopt display-fill-column-indicator-column 80)
-(setopt display-fill-column-indicator-character ?\u007c)
+(setopt display-fill-column-indicator-character ?\u00a6)
 
 (when (display-graphic-p)
   (scroll-bar-mode -1)
@@ -21,7 +21,8 @@
   (add-to-list 'default-frame-alist '(height . 30))
   (setq gui-font "Droid Sans Mono")
   (when (member gui-font (font-family-list))
-    (set-frame-font gui-font t t)))
+    (set-frame-font gui-font t t))
+  (setq x-underline-at-descent-line t))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -29,3 +30,4 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-packages)
 (require 'init-fonts)
+(require 'init-themes)
