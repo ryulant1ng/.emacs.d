@@ -1,5 +1,5 @@
 ;; Emacs version check
-(let ((minver "27.1"))
+(let ((minver "30"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 
