@@ -29,7 +29,8 @@
   (setq gui-font "Droid Sans Mono")
   (when (member gui-font (font-family-list))
     (set-frame-font gui-font t t))
-  (setq x-underline-at-descent-line t))
+  (setq x-underline-at-descent-line t)
+  (pixel-scroll-precision-mode t))
 
 ;; Custom file
 (setq custom-file "~/.emacs.d/custom.el")

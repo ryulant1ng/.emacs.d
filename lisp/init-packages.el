@@ -25,7 +25,20 @@
   :hook (company-mode . company-box-mode))
 
 (use-package neotree
-  :ensure t)
+  :ensure t
+  :bind
+  ([f8] . 'neotree-toggle))
+
+(use-package undo-tree
+  :ensure t
+  :init (global-undo-tree-mode)
+  :custom (undo-tree-auto-save-history nil))
+
+(use-package mwim
+  :ensure t
+  :bind
+  ("C-a" . mwim-beginning-of-code-or-line)
+  ("C-e" . mwim-end-of-code-or-line))
 
 ;; Language support
 
