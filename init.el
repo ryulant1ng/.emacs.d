@@ -25,7 +25,7 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (add-to-list 'default-frame-alist '(width . 100))
-  (add-to-list 'default-frame-alist '(height . 30))
+  (add-to-list 'default-frame-alist '(height . 40))
   (setq gui-font "Droid Sans Mono")
   (when (member gui-font (font-family-list))
     (set-frame-font gui-font t t))
