@@ -48,3 +48,4 @@
 (require 'init-packages)
 (require 'init-fonts)
 (require 'init-themes)
+(require 'init-indent)
