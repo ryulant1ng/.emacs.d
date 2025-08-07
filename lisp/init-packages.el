@@ -71,6 +71,7 @@
   :config
   (setq dashboard-banner-logo-title "No matter where you go, everyone is connected.")
   (setq dashboard-footer-messages '("make me sad, make me mad, make me feel alright?"))
+  (setq dashboard-startup-banner (expand-file-name "lain.txt" user-emacs-directory))
   (setq dashboard-items '((recents . 10)))
   (dashboard-setup-startup-hook))
 
