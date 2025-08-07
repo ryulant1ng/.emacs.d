@@ -66,12 +66,4 @@
 (use-package solarized-theme
   :ensure t)
 
-(use-package dashboard
-  :ensure t
-  :config
-  (setq dashboard-banner-logo-title "No matter where you go, everyone is connected.")
-  (setq dashboard-footer-messages '("make me sad, make me mad, make me feel alright?"))
-  (setq dashboard-items '((recents . 10)))
-  (dashboard-setup-startup-hook))
-
 (provide 'init-packages)
