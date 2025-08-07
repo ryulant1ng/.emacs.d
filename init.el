@@ -23,9 +23,12 @@
 (global-display-line-numbers-mode t)
 (global-hl-line-mode t)
 (global-visual-line-mode t)
+(global-tab-line-mode t)
 (add-hook 'prog-mode-hook #'display-fill-column-indicator-mode)
 (setopt display-fill-column-indicator-column 80)
 (setopt display-fill-column-indicator-character ?\u00a6)
+(setq shr-width 80)
+(setq shr-max-width 80)
 
 ;; GUI environment settings
 (when (display-graphic-p)
