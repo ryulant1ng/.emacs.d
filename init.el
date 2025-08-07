@@ -7,7 +7,7 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'emacs-startup-hook
           (lambda ()
-            "Recover GC values after startup."
+            "Recover GC values after startup. Default is 800000."
             (setq gc-cons-threshold 800000)))
 
 ;; Editing
@@ -15,8 +15,8 @@
 (menu-bar-mode -1)
 (delete-selection-mode t)
 (setq-default indent-tabs-mode nil)
-(setq make-backup-files nil) ; Disable auto save & backup files
-(setq auto-save-default nil)
+(setq make-backup-files nil) ; Disable auto save files
+(setq auto-save-default nil) ; Disable backup files
 
 ;; UI settings
 (setq inhibit-startup-message t)
