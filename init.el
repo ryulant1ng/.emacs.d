@@ -3,6 +3,13 @@
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 
+;; Defer garbage collection further back in the startup process
+(setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            "Recover GC values after startup."
+            (setq gc-cons-threshold 800000)))
+
 ;; Editing
 (column-number-mode t)
 (menu-bar-mode -1)
@@ -33,7 +40,7 @@
   (pixel-scroll-precision-mode t))
 
 ;; Custom file
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
 ;; User scripts
