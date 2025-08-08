@@ -1,7 +1,7 @@
 ;; C/C++
 
 (defun c-c++-indent ()
-  (setq c-basic-offset 4) ; We already set indent-tabs-mode` to `nil` in init.el.
+  (setq c-basic-offset 4) ; We already set `indent-tabs-mode` to `nil` in init.el.
   (setq c-default-style "k&r"))
 (add-hook 'c-mode-hook 'c-c++-indent)
 (add-hook 'c++-mode-hook 'c-c++-indent)

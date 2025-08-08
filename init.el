@@ -1,7 +1,8 @@
 ;; Emacs version check
 (let ((minver "30"))
   (when (version< emacs-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+    (error
+     "Your Emacs is too old -- this config requires v%s or higher" minver)))
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
@@ -37,7 +38,7 @@
   (tool-bar-mode -1)
   (add-to-list 'default-frame-alist '(width . 120))
   (add-to-list 'default-frame-alist '(height . 40))
-  (setq gui-font "Google Sans Code")
+  (setq gui-font "Google Sans Code") ; Nice font, similar to Droid Sans Mono
   (when (member gui-font (font-family-list))
     (set-frame-font gui-font t t))
   (setq x-underline-at-descent-line t)

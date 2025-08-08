@@ -48,6 +48,9 @@
 (use-package auctex
   :ensure t)
 
+(use-package zig-mode
+  :ensure t)
+
 ;; Beautify
 
 (use-package powerline
