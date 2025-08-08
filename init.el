@@ -17,6 +17,7 @@
 (setq-default indent-tabs-mode nil)
 (setq make-backup-files nil) ; Disable auto save files
 (setq auto-save-default nil) ; Disable backup files
+(prefer-coding-system 'utf-8)
 
 ;; UI settings
 (setq inhibit-startup-message t)
@@ -34,13 +35,13 @@
 (when (display-graphic-p)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (add-to-list 'default-frame-alist '(width . 100))
+  (add-to-list 'default-frame-alist '(width . 120))
   (add-to-list 'default-frame-alist '(height . 40))
-  (setq gui-font "Droid Sans Mono")
+  (setq gui-font "Google Sans Code")
   (when (member gui-font (font-family-list))
     (set-frame-font gui-font t t))
   (setq x-underline-at-descent-line t)
-  (pixel-scroll-precision-mode t))
+  (pixel-scroll-precision-mode t)) ; Better than good-scroll
 
 ;; Custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -52,3 +53,4 @@
 (require 'init-fonts)
 (require 'init-themes)
 (require 'init-indent)
+(require 'init-org)
