@@ -1,6 +1,8 @@
 ;; org-mode is NOT very suitable for Chinese/Japanese documents, since it
 ;; requires spaces to separate the format.
 
+;; To be compatible with LaTeX, use backtick as left quotation mark.
+
 ;; For org-mode-related packages, see lisp/init-packages.el.
 
 (setq org-directory (file-truename "~/org/"))
