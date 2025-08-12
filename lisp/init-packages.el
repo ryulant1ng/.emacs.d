@@ -3,6 +3,19 @@
 (package-initialize)
 (eval-when-compile (require 'use-package))
 
+;; Emacs tweaks
+
+(use-package dirvish
+  :ensure t
+  :custom
+  (when (eq system-type 'darwin)
+    (setq dired-use-ls-dired nil)))
+
+(use-package async
+  :ensure t
+  :config
+  (async-bytecomp-package-mode 1))
+
 ;; Editing
 
 (use-package editorconfig ; Won't use `:ensure t`, so requires Emacs 30+.
@@ -39,6 +52,13 @@
   :bind
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
+
+(use-package eshell-toggle
+  :custom
+  (eshell-toggle-run-command nil)
+  (eshell-toggle-init-function #'eshell-toggle-init-shell)
+  :bind
+  ("s-`" . eshell-toggle))
 
 ;; Language support
 

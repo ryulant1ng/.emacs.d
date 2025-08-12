@@ -6,3 +6,5 @@ elpa
 amx-items
 recentf
 org-persist
+transient
+eshell
