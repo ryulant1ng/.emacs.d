@@ -3,7 +3,7 @@
 (package-initialize)
 (eval-when-compile (require 'use-package))
 
-;; Emacs tweaks
+;; -- Emacs tweaks
 
 (use-package dirvish
   :ensure t
@@ -11,7 +11,7 @@
   (when (eq system-type 'darwin)
     (setq dired-use-ls-dired nil)))
 
-;; Editing
+;; -- Editing
 
 (use-package editorconfig ; Won't use `:ensure t`, so requires Emacs 30+.
   :config
@@ -55,7 +55,7 @@
   :bind
   ("s-`" . eshell-toggle))
 
-;; Language support
+;; -- Language support
 
 (use-package markdown-mode
   :ensure t)
@@ -66,7 +66,7 @@
 (use-package zig-mode
   :ensure t)
 
-;; Beautify
+;; -- Beautify
 
 (use-package powerline
   :ensure t
@@ -90,7 +90,12 @@
   (setq dashboard-banner-logo-title "No matter where you go, everyone is connected.")
   (setq dashboard-footer-messages '("make me sad. make me mad. make me feel alright?"))
   (setq dashboard-startup-banner (expand-file-name "lain.txt" user-emacs-directory))
-  (setq dashboard-items '((recents . 10)))
+  (setq dashboard-items '((recents . 10)
+                          (agenda . 10)))
+  (setq dashboard-center-content t)
+  (setq dashboard-vertically-center-content t)
+  ;; No need to display icons, since I don't want to install the icon font
+  (setq dashboard-display-icons-p nil)
   (dashboard-setup-startup-hook))
 
 (provide 'init-packages)
