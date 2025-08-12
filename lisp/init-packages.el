@@ -7,14 +7,9 @@
 
 (use-package dirvish
   :ensure t
-  :custom
+  :config
   (when (eq system-type 'darwin)
     (setq dired-use-ls-dired nil)))
-
-(use-package async
-  :ensure t
-  :config
-  (async-bytecomp-package-mode 1))
 
 ;; Editing
 
