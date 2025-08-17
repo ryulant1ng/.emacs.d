@@ -38,17 +38,20 @@
   (setq default-frame-alist '((width . 120)
                               (height . 40)
                               (alpha-background . 80))) ; Can't use on macOS with Emacs 30.1
-  (setq gui-font "Google Sans Code") ; Nice font, similar to Droid Sans Mono
-  (setq gui-font-size "12") ; Default font size
+  (cond ; Set different font size for different devices (systems).
+   ((or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+    (setq gui-font "Google Sans Code"))
+   ((eq system-type 'windows-nt) ; Emacs on Windows not support VF fonts
+    (setq gui-font "Consolas")))
   (cond ; Set different font size for different devices (systems).
    ((or (eq system-type 'windows-nt) (eq system-type 'gnu/linux))
-    (setq gui-font-size "14"))
+    (setq gui-font-size "12"))
    ((eq system-type 'darwin)
     (setq gui-font-size "16")))
   (when (member gui-font (font-family-list))
     (set-frame-font (concat gui-font "-" gui-font-size) t t))
   (setq x-underline-at-descent-line t)
-  (pixel-scroll-precision-mode t)) ; Better than good-scroll
+  (pixel-scroll-precision-mode t)) ; Better than good-scroll, can't use on Windows
 
 ;; -- Custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
