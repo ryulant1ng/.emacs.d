@@ -12,7 +12,8 @@
 
 ;; -- Editing
 (column-number-mode t)
-(menu-bar-mode -1)
+(when (not (display-graphic-p))
+  (menu-bar-mode -1))
 (delete-selection-mode t)
 (setq-default indent-tabs-mode nil)
 (setq make-backup-files nil) ; Disable auto save files
@@ -64,3 +65,4 @@
 (require 'init-themes)
 (require 'init-indent)
 (require 'init-org)
+(require 'init-tex)
