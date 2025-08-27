@@ -12,13 +12,12 @@
 
 ;; -- Editing
 (column-number-mode t)
-(when (not (display-graphic-p))
-  (menu-bar-mode -1))
+(menu-bar-mode -1)
 (delete-selection-mode t)
 (setq-default indent-tabs-mode nil)
 (setq make-backup-files nil) ; Disable auto save files
 (setq auto-save-default nil) ; Disable backup files
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-dos)
 
 ;; -- UI settings
 (setq inhibit-startup-message t)
@@ -38,7 +37,7 @@
   (tool-bar-mode -1)
   (setq default-frame-alist '((width . 120)
                               (height . 40)
-                              (alpha-background . 80))) ; Can't use on macOS with Emacs 30.1
+                              (alpha-background . 80))) ; Can't use on macOS/Windows with Emacs 30.2
   (cond ; Set different font size for different devices (systems).
    ((or (eq system-type 'darwin) (eq system-type 'gnu/linux))
     (setq gui-font "Google Sans Code"))
@@ -52,7 +51,7 @@
   (when (member gui-font (font-family-list))
     (set-frame-font (concat gui-font "-" gui-font-size) t t))
   (setq x-underline-at-descent-line t)
-  (pixel-scroll-precision-mode t)) ; Better than good-scroll, can't use on Windows
+  (pixel-scroll-precision-mode t)) ; Better than good-scroll
 
 ;; -- Custom file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -61,7 +60,8 @@
 ;; -- User scripts
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-packages)
-(require 'init-fonts)
+(when (display-graphic-p)
+  (require 'init-fonts))
 (require 'init-themes)
 (require 'init-indent)
 (require 'init-org)
